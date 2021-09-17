@@ -1,6 +1,6 @@
 type Product = { name: string; price: number };
 
-export class ShoppingCart {
+export class ShoppingCartLegacy {
     private readonly _item: Product[] = [];
     private orderStatus: "open" | "clouse" = "open";
 
@@ -57,10 +57,10 @@ export class ShoppingCart {
     }
 }
 
-const shoppingCart = new ShoppingCart();
-shoppingCart.addItem({ name: "blusa", price: 100 });
-shoppingCart.addItem({ name: "sapato", price: 300 });
-shoppingCart.addItem({ name: "joia", price: 150 });
-console.log(shoppingCart.item);
-console.log(shoppingCart.total());
-shoppingCart.checkout();
+const shoppingCartLegacy = new ShoppingCartLegacy();
+shoppingCartLegacy.addItem({ name: "blusa", price: 100 });
+shoppingCartLegacy.addItem({ name: "sapato", price: 300 });
+shoppingCartLegacy.addItem({ name: "joia", price: 150 });
+console.log(shoppingCartLegacy.item);
+console.log(shoppingCartLegacy.total());
+shoppingCartLegacy.checkout();
