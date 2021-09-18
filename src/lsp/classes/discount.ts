@@ -13,8 +13,4 @@ export class TenPercentDiscount extends Discount {
     discount = 0.1;
 }
 
-export class NoDiscount extends Discount {
-    calculate(price: number): number {
-        return price;
-    }
-}
+export class NoDiscount extends Discount {}
