@@ -1,3 +1,4 @@
+import { CustumerOrder } from "../interface/custumer-protocol";
 import { OrderStatus } from "../interface/product";
 import { Messaging } from "../services/messaging";
 import { Persistency } from "../services/persistency";
@@ -9,7 +10,8 @@ export class Order {
     constructor(
         private readonly cart: ShoppingCart,
         private readonly messaging: Messaging,
-        private readonly persistency: Persistency
+        private readonly persistency: Persistency,
+        private readonly customer: CustumerOrder
     ) {}
 
     get orderStatus(): OrderStatus {
@@ -27,5 +29,10 @@ export class Order {
         );
         this.persistency.saveOrder();
         this.cart.clear();
+        console.log(
+            "O cliente é:",
+            this.customer.getName(),
+            this.customer.getIDN()
+        );
     }
 }

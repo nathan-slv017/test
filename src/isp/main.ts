@@ -12,17 +12,27 @@ import {
     TenPercentDiscount,
     NoDiscount,
 } from "./classes/discount";
+import { IndividualCustumer } from "./interface/custumer";
 
 const fiftyPercentDiscount = new FiftyPercentDiscount();
 const tenPercentDiscount = new TenPercentDiscount();
 const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(tenPercentDiscount);
-
+const individualCustumer = new IndividualCustumer(
+    "nathan",
+    "silva",
+    "290239029302930"
+);
 const messaging = new Messaging();
 
 const persistency = new Persistency();
 
-const order = new Order(shoppingCart, messaging, persistency);
+const order = new Order(
+    shoppingCart,
+    messaging,
+    persistency,
+    individualCustumer
+);
 shoppingCart.addItem({ name: "blusa", price: 100 });
 shoppingCart.addItem({ name: "sapato", price: 300 });
 shoppingCart.addItem({ name: "joia", price: 150 });
